@@ -1,0 +1,12 @@
+.app {
+
+  &__wraper {
+  display: flex;
+  justify-content: space-between;
+  }
+
+  &__list {
+    display: grid;
+    gap: 8px;
+  }
+}

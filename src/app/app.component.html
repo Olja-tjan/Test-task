@@ -1,9 +1,21 @@
-<h1>Тестовое задание</h1>
+<div class="app">
 
-<h2>Список пользователей:</h2>
-<app-user-card></app-user-card>
-<app-user-card></app-user-card>
-<app-user-card></app-user-card>
+  <h1 class="app__title">Тестовое задание</h1>
 
+  <div class="app__wraper">
+    <ul class="app__list">
+      <h2 class="app__subtitle">Список пользователей:</h2>
+      @for (user of users; track user.id) {
+      <app-user-card [user]="user"></app-user-card>
+      }
+    </ul>
+    <!--
+    <pre>
+  {{ users | json }}
+</pre> -->
 
-<h2>Список ресурсов:</h2>
+    <ul class="app__list">
+      <h2 class="app__subtitle">Список ресурсов:</h2>
+    </ul>
+  </div>
+</div>

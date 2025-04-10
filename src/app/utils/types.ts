@@ -1,19 +1,27 @@
-export type TUser = {
-	id: number;
-	email: string;
-	first_name: string;
-	last_name: string;
-	avatar: string;
+export interface IUser {
+	id: number,
+	email: string,
+	first_name: string,
+	last_name: string,
+	avatar: string | null,
 	support?: {
 		url: string
-	};
-	text?: string;
+	},
+	text?: string
 }
 
-export type TResources = {
-	id: number;
-	name: string;
-	year: number;
-	color: string;
-	pantone_value: string;
+export interface IListUsers {
+  page: number,
+  per_page: number,
+  total: number,
+  total_pages: number,
+  data: IUser[]
+}
+
+export interface IResources {
+	id: number,
+	name: string,
+	year: number,
+	color: string,
+	pantone_value: string
 }

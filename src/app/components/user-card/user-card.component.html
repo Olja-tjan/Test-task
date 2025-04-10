@@ -1,8 +1,10 @@
+@if (user) {
 <div class="user-card">
-  <img class="user-card__image" src="https://reqres.in/img/faces/2-image.jpg" alt="avatar">
+  <img class="user-card__image" [src]="user.avatar" alt="avatar">
   <div class="user-card__info">
-    <h3 class="user-card__name">Janet Weaver</h3>
-    <p class="user-card__email">janet.weaverreqres.in</p>
+    <h3 class="user-card__name">{{ user.first_name }} {{ user.last_name }}</h3>
+    <p class="user-card__email">{{ user.email }}</p>
   </div>
   <button class="user-card__deleted">Удалить</button>
 </div>
+}
