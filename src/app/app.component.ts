@@ -4,10 +4,11 @@ import { UserCardComponent } from "./components/user-card/user-card.component";
 import { UserService } from './data/services/user.service';
 import { IUser } from './utils/types';
 import { JsonPipe } from '@angular/common';
+import { ResourceCardComponent } from "./components/resource-card/resource-card.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UserCardComponent, JsonPipe],
+  imports: [RouterOutlet, UserCardComponent, JsonPipe, ResourceCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
