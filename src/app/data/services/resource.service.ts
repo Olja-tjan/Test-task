@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { IListUsers } from '../../utils/types';
+import { IListResource } from '../../utils/types';
 import { baseUrl } from '../../utils/constants';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ResourceService {
   http :HttpClient = inject(HttpClient)
 
-  getUsers() {
-    return this.http.get<IListUsers>(`${baseUrl}users?page=2`)
+  getResources() {
+    return this.http.get<IListResource>(`${baseUrl}unknown`)
   }
 }

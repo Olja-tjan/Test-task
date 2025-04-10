@@ -16,9 +16,9 @@
 
     <ul class="app__list">
       <h2 class="app__subtitle">Список ресурсов:</h2>
-      <app-resource-card></app-resource-card>
-      <app-resource-card></app-resource-card>
-      <app-resource-card></app-resource-card>
+      @for (resource of resources; track resource.id) {
+      <app-resource-card [resource]="resource"></app-resource-card>
+      }
     </ul>
   </div>
 </div>
