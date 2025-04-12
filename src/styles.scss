@@ -5,9 +5,9 @@
 }
 
 body {
-  max-width: 1240px;
-  margin: 0 auto;
   display: flex;
+  justify-content: center;
+  margin-top: 40px;
   background-color: var(--color-dark);
   color: var(--color-light);
 }

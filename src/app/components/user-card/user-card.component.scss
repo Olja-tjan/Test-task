@@ -2,8 +2,23 @@
   border: 1px solid var(--color-light);
   padding: 32px 24px;
   display: grid;
-  grid-template-columns:  minmax(min-content, max-content) 1fr min-content;
+  grid-template-columns: 1fr min-content;
   gap: 20px;
+
+  &__wraper {
+    position: relative;
+    z-index: 2;
+    color: var(--color-light);
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content) 1fr;
+    gap: 20px;
+    transition: opacity 0.4s ease-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 
   &__image {
     width: 70px;
@@ -30,5 +45,11 @@
   &__deleted {
     margin: auto;
     padding: 5px 10px;
+    cursor: pointer;
+    transition: opacity 0.4s ease-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }

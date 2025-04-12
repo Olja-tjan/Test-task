@@ -1,10 +1,12 @@
 @if (user) {
 <div class="user-card">
-  <img class="user-card__image" [src]="user.avatar" alt="avatar">
-  <div class="user-card__info">
-    <h3 class="user-card__name">{{ user.first_name }} {{ user.last_name }}</h3>
-    <p class="user-card__email">{{ user.email }}</p>
-  </div>
+  <a class="user-card__wraper" href="">
+    <img class="user-card__image" [src]="user.avatar" alt="avatar">
+    <div class="user-card__info">
+      <h3 class="user-card__name">{{ user.first_name }} {{ user.last_name }}</h3>
+      <p class="user-card__email">{{ user.email }}</p>
+    </div>
+  </a>
   <button class="user-card__deleted">Удалить</button>
 </div>
 }

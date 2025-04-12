@@ -1,0 +1,20 @@
+<div class="main">
+
+  <h1 class="main__title">Test task:</h1>
+
+  <div class="main__wraper">
+    <ul class="main__list">
+      <h2 class="main__subtitle">list of users:</h2>
+      @for (user of users; track user.id) {
+      <app-user-card [user]="user"></app-user-card>
+      }
+    </ul>
+
+    <ul class="main__list">
+      <h2 class="main__subtitle">List of resources:</h2>
+      @for (resource of resources; track resource.id) {
+      <app-resource-card [resource]="resource"></app-resource-card>
+      }
+    </ul>
+  </div>
+</div>

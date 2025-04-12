@@ -1,0 +1,16 @@
+.main {
+
+  &__title{
+    text-align: center;
+  }
+
+  &__wraper {
+  display: flex;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
