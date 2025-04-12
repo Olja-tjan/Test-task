@@ -3,11 +3,7 @@ export interface IUser {
 	email: string,
 	first_name: string,
 	last_name: string,
-	avatar: string | null,
-	support?: {
-		url: string
-	},
-	text?: string
+	avatar: string | null
 }
 
 export interface IListUsers {
@@ -16,6 +12,14 @@ export interface IListUsers {
   total: number,
   total_pages: number,
   data: IUser[]
+}
+
+export interface IUserInfo{
+  data: IUser,
+  support: {
+    url: string,
+    text: string
+  }
 }
 
 export interface IResource {
