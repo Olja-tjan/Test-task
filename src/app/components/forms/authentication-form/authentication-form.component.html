@@ -16,8 +16,8 @@
     </div>
 
     <div class="authentication-form__wrapper-input">
-      <label class="authentication-form__label">Password</label>
-      <input formControlName="password" class="authentication-form__input" type="text" />
+      <label class="authentication-form__label" for="password">Password</label>
+      <input class="authentication-form__input" id="password" formControlName="password" type="text" />
       @if (!authForm.controls.password.valid && authForm.controls.password.touched) {
       <small style="color: red;">The field must be filled in</small>}
     </div>
