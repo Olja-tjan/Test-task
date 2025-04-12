@@ -1,0 +1,57 @@
+<div class="edit-form">
+
+  <h3>Change profile</h3>
+
+  <form class="edit-form__form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+    <div class="edit-form__wrapper-input">
+      <label class="edit-form__label" for="email">Email</label>
+      <input class="edit-form__input" id="email" formControlName="email" type="text" />
+      @if (editForm.controls.email.value === '' && editForm.controls.email.touched) {
+      <small style="color: red;">The field must be filled in</small>
+      }
+      @else if (!editForm.controls.email.valid && editForm.controls.email.touched) {
+      <small style="color: red;">Incorrect email address</small>
+      }
+    </div>
+
+    <div class="edit-form__wrapper-input">
+      <label class="edit-form__label" for="first-name">First name</label>
+      <input formControlName="first_name" id="first-name" class="edit-form__input" type="text" />
+      @if (!editForm.controls.first_name.valid && editForm.controls.first_name.touched) {
+      <small style="color: red;">The field must be filled in</small>}
+    </div>
+
+    <div class="edit-form__wrapper-input">
+      <label class="edit-form__label" for="last-name">Last name</label>
+      <input formControlName="last_name" id="last-name" class="edit-form__input" type="text" />
+      @if (!editForm.controls.last_name.valid && editForm.controls.last_name.touched) {
+      <small style="color: red;">The field must be filled in</small>}
+    </div>
+
+    <div class="edit-form__wrapper-input">
+      <label class="edit-form__label" for="avatar">Avatar</label>
+      <input formControlName="avatar" id="avatar" class="edit-form__input" type="text" />
+      @if (!editForm.controls.avatar.valid && editForm.controls.avatar.touched) {
+      <small style="color: red;">The field must be filled in</small>}
+    </div>
+
+    <div class="edit-form__wrapper-input">
+      <label class="edit-form__label" for="url">Link</label>
+      <input formControlName="url" id="url" class="edit-form__input" type="text" />
+      @if (!editForm.controls.url.valid && editForm.controls.url.touched) {
+      <small style="color: red;">The field must be filled in</small>}
+    </div>
+
+    <div class="edit-form__wrapper-input">
+      <label class="edit-form__label" for="text">Description</label>
+      <input formControlName="text" id="text" class="edit-form__input" type="text" />
+      @if (!editForm.controls.text.valid && editForm.controls.text.touched) {
+      <small style="color: red;">The field must be filled in</small>}
+    </div>
+
+    <button class="edit-form__button" type="submit" [disabled]="!editForm.valid">Sign in</button>
+
+  </form>
+
+</div>
