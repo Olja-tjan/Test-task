@@ -1,0 +1,29 @@
+<div class="authentication-form">
+
+  <h3>{{title}}</h3>
+
+  <form class="authentication-form__form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+
+    <div class="authentication-form__wrapper-input">
+      <label class="authentication-form__label" for="email">Email</label>
+      <input class="authentication-form__input" id="email" formControlName="email" type="text" />
+      @if (authForm.controls.email.value === '' && authForm.controls.email.touched) {
+      <small style="color: red;">The field must be filled in</small>
+      }
+      @else if (!authForm.controls.email.valid && authForm.controls.email.touched) {
+      <small style="color: red;">Incorrect email address</small>
+      }
+    </div>
+
+    <div class="authentication-form__wrapper-input">
+      <label class="authentication-form__label">Password</label>
+      <input formControlName="password" class="authentication-form__input" type="text" />
+      @if (!authForm.controls.password.valid && authForm.controls.password.touched) {
+      <small style="color: red;">The field must be filled in</small>}
+    </div>
+
+    <button class="authentication-form__button" type="submit" [disabled]="!authForm.valid">Sign in</button>
+
+  </form>
+
+</div>

@@ -33,3 +33,8 @@ export interface IListResource {
   total_pages: number,
   data: IResource[]
 }
+
+export interface IAuthData {
+  email?: string | null,
+  password?: string | null,
+}
