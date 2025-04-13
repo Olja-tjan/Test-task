@@ -11,7 +11,7 @@ import { IUserInfo } from '../../../utils/types';
 export class EditFormComponent {
   user :IUserInfo = {
     data: {
-      id: 8,
+      id: '8',
       email: 'lindsay.ferguson@reqres.in',
       first_name: 'Lindsay',
       last_name: 'Ferguson',

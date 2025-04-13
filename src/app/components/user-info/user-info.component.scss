@@ -1,0 +1,44 @@
+.user-info {
+  border: 1px solid var(--color-light);
+  padding: 32px 24px;
+  display: grid;
+  gap: 20px;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content) 1fr;
+    gap: 20px;
+  }
+
+  &__image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__name {
+    margin: 0;
+  }
+
+  &__email {
+    margin: 0;
+  }
+
+  &__link {
+    margin: 0;
+    text-decoration: none;
+    color: var(--color-light);
+  }
+
+  &__text {
+    margin: 0;
+  }
+}

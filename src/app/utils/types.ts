@@ -1,5 +1,5 @@
 export interface IUser {
-	id: number,
+	id: string,
 	email: string,
 	first_name: string,
 	last_name: string,
@@ -23,7 +23,7 @@ export interface IUserInfo{
 }
 
 export interface IResource {
-	id: number,
+	id: string,
 	name: string,
 	year: number,
 	color: string,

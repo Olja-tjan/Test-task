@@ -1,6 +1,6 @@
 @if (user) {
 <div class="user-card">
-  <a class="user-card__wrapper" href="">
+  <a class="user-card__wrapper" [routerLink]="[`/user/${user.id}`]" routerLinkActive="active">
     <img class="user-card__image" [src]="user.avatar" alt="avatar">
     <div class="user-card__info">
       <h3 class="user-card__name">{{ user.first_name }} {{ user.last_name }}</h3>

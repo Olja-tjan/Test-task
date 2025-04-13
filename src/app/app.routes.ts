@@ -7,7 +7,7 @@ import { EditPageComponent } from './pages/edit-page/edit-page.component';
 
 export const routes: Routes = [
   {path: '', component: MainPageComponent},
-  {path: 'user', component: UserInfoPageComponent},
+  {path: `user/:id`, component: UserInfoPageComponent},
   {path: 'edit', component: EditPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent}

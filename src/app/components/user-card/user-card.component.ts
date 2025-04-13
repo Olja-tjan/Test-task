@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { IUser } from '../../utils/types';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent {
-  @Input() user!: IUser;
+  @Input() user?: IUser;
 }
