@@ -1,6 +1,7 @@
 @if (userInfo$ |async; as user) {
 <div class="user-info-page">
   <app-user-info [user]="user"></app-user-info>
-  <button class="user-info-page__edit">Edit</button>
+  @if (user.data.id === meId$) {
+  <button class="user-info-page__edit" [routerLink]="['/edit']">Edit</button>}
 </div>
 }

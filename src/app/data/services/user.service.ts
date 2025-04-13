@@ -26,4 +26,11 @@ export class UserService {
   getUser(id: string) {
     return this.http.get<IUserInfo>(`${baseUrl}users/${id}`)
   }
+
+  putUser(user: Partial<IUserInfo>, id: string) {
+    return this.http.put<IUserInfo>(
+      `${baseUrl}users/${id}`,
+      user
+    )
+  }
 }

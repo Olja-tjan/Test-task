@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { UserService } from './../../../data/services/user.service';
+import { IUserInfo } from './../../../utils/types';
+import { Component, effect, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IUserInfo } from '../../../utils/types';
 
 @Component({
   selector: 'app-edit-form',
@@ -9,34 +10,63 @@ import { IUserInfo } from '../../../utils/types';
   styleUrl: './edit-form.component.scss'
 })
 export class EditFormComponent {
-  user :IUserInfo = {
-    data: {
-      id: '8',
-      email: 'lindsay.ferguson@reqres.in',
-      first_name: 'Lindsay',
-      last_name: 'Ferguson',
-      avatar: 'https://reqres.in/img/faces/8-image.jpg',
-    },
-    support: {
-      url: 'https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral',
-      text: 'Tired of writing endless social media content? Let Content Caddy generate it for you.'
+  userService = inject(UserService)
+
+  meId = this.userService.me()?.data.id;
+
+  editForm = new FormGroup({
+    email: new FormControl<string|null>('', [Validators.required, Validators.email]),
+    first_name: new FormControl<string|null>('', Validators.required),
+    last_name: new FormControl<string|null>('', Validators.required),
+    avatar: new FormControl<string|null>('', Validators.required),
+    url: new FormControl<string|null>('', Validators.required),
+    text: new FormControl<string|null>('', Validators.required)
+  })
+
+  onSubmit(): void {
+    if (this.editForm.valid && this.meId === "string") {
+      const formData = this.createFormData();
+      console.log(formData);
+      this.userService.putUser(<IUserInfo>formData, this.meId)
     }
   }
 
-  editForm = new FormGroup({
-    email: new FormControl<string|null>(this.user.data.email, [Validators.required, Validators.email]),
-    first_name: new FormControl<string|null>(this.user.data.first_name, Validators.required),
-    last_name: new FormControl<string|null>(this.user.data.last_name, Validators.required),
-    avatar: new FormControl<string|null>(this.user.data.avatar, Validators.required),
-    url: new FormControl<string|null>(this.user.support.url, Validators.required),
-    text: new FormControl<string|null>(this.user.support.text, Validators.required)
-  })
+  createFormData() {
+    const { email, first_name, last_name, avatar, url, text } = this.editForm.value;
 
-  onSubmit() {
+    return {
+      data: {
+        email: email,
+        first_name: first_name,
+        last_name: last_name,
+        avatar: avatar
+      },
+      support: {
+        url: url,
+        text: text
+      }
+    };
+  }
 
-    if (this.editForm.valid) {
-      console.log(this.editForm.value)
+  createFormValue(userValue: IUserInfo) {
+    return {
+      email: userValue.data.email,
+      first_name: userValue.data.first_name,
+      last_name: userValue.data.last_name,
+      avatar: userValue.data.avatar,
+      url: userValue.support.url,
+      text: userValue.support.text
     }
+  }
+
+  constructor() {
+    effect( () => {
+      const meData = this.userService.me()
+      console.log(meData)
+      if(meData !== null) {
+        this.editForm.patchValue(this.createFormValue(meData))
+      }
+    })
   }
 
 }

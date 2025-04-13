@@ -17,11 +17,12 @@ export class UserInfoPageComponent {
   route = inject(ActivatedRoute)
 
   me$ = toObservable(this.userService.me)
+  meId$ = this.userService.me()?.data.id
 
   userInfo$ = this.route.params
     .pipe(
       switchMap(({id}) => {
-        if (id === 'me') return this.me$
+        if (id === this.meId$) return this.me$
         return this.userService.getUser(id)
       })
     )
