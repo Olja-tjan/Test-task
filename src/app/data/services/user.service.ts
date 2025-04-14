@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { IListUsers, IUserInfo } from '../../utils/types';
+import { IListUsers, IUser, IUserInfo } from '../../utils/types';
 import { baseUrl } from '../../utils/constants';
 import { tap } from 'rxjs';
 
@@ -32,5 +32,9 @@ export class UserService {
       `${baseUrl}users/${id}`,
       user
     )
+  }
+
+  deleteUser(id: string | undefined) {
+    return this.http.delete<IUserInfo>(`${baseUrl}users/${id}`)
   }
 }

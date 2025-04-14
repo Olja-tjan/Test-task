@@ -2,6 +2,7 @@
 <div class="user-info-page">
   <app-user-info [user]="user"></app-user-info>
   @if (user.data.id === meId$) {
-  <button class="user-info-page__edit" [routerLink]="['/edit']">Edit</button>}
+  <button class="user-info-page__edit" [routerLink]="['/edit']">Edit</button>
+  }
 </div>
 }

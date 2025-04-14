@@ -2,8 +2,9 @@ import { Component, inject } from '@angular/core';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
 import { ResourceCardComponent } from '../../components/resource-card/resource-card.component';
 import { UserService } from '../../data/services/user.service';
-import { IResource, IUser } from '../../utils/types';
+import { IResource, IUser, IUserInfo } from '../../utils/types';
 import { ResourceService } from '../../data/services/resource.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -30,5 +31,12 @@ export class MainPageComponent {
       .subscribe( val => {
         this.resources = val.data
       })
+  }
+
+  public handleEvent(id: string | undefined) {
+    console.log(`handleEvent: ${id}`)
+    this.userService.deleteUser(id).subscribe(() => {
+      this.users = this.users.filter(user => user.id !== id);
+    });
   }
 }

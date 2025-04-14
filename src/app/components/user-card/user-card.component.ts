@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { IUser } from '../../utils/types';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { IUser, IUserInfo } from '../../utils/types';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../data/services/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-card',
@@ -10,4 +12,15 @@ import { RouterLink } from '@angular/router';
 })
 export class UserCardComponent {
   @Input() user?: IUser;
+
+  @Output() eventDelete = new EventEmitter<string | undefined>()
+
+  userService = inject(UserService)
+  meId = this.userService.me()?.data.id
+
+  handlerClick(id: string | undefined) {
+    console.log(id)
+    this.eventDelete.emit(id)
+  }
+
 }

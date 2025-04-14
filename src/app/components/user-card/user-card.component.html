@@ -7,6 +7,8 @@
       <p class="user-card__email">{{ user.email }}</p>
     </div>
   </a>
-  <button class="user-card__deleted">Удалить</button>
+  @if (user.id === meId) {
+  <button class="user-card__deleted" (click)="handlerClick(user.id)">Удалить</button>
+  }
 </div>
 }
